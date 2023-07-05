@@ -1,4 +1,4 @@
 export default interface Request {
-  method: string;
-  url: string;
+  method: string
+  url: string
 }

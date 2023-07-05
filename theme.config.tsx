@@ -1,5 +1,5 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { type DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
   head: (
@@ -18,10 +18,10 @@ const config: DocsThemeConfig = {
     </>
   ),
 
-  docsRepositoryBase: "https://github.com/matheusgbt/doc-spalla-api/tree/main",
+  docsRepositoryBase: 'https://github.com/matheusgbt/doc-spalla-api/tree/main',
 
   footer: {
-    text: `Documentação Spalla API - ${new Date().getFullYear()}`,
+    text: `Documentação Spalla API - ${new Date().getFullYear()}`
   }
 }
 
