@@ -2,9 +2,6 @@
   "index": {
     "title": "Overview"
   },
-  "---": {
-    "type": "separator"
-  },
   "lives": {
     "title": "Lives"
   }
