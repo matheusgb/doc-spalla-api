@@ -30,7 +30,7 @@ export const MethodParagraph = styled.p<IRequests>`
   color: white;
   background-color: ${(props) => methods[props.method]};
   padding: 3px;
-  border-radius: 0.3rem;
+  border-radius: 8px;
   font-size: 1.0rem;
   font-weight: 600;
   width: fit-content;
