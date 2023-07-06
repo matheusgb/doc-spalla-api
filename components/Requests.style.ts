@@ -6,8 +6,8 @@ const methods: IMethodsColors = {
   GET: '#5f3be2',
   POST: '#1b9936',
   PUT: '#d39014',
-  PATCH: '#ffff01',
-  DELETE: '#ff0000'
+  PATCH: '#f3e16b',
+  DELETE: '#af4154'
 }
 
 export const Container = styled.section`
@@ -29,11 +29,11 @@ export const DivContainerHead = styled.div`
 export const MethodParagraph = styled.p<IRequests>`
   color: white;
   background-color: ${(props) => methods[props.method]};
-  padding: 0.2rem;
+  padding: 3px;
   border-radius: 0.3rem;
   font-size: 1.0rem;
   font-weight: 600;
-  width: 40px;
+  width: fit-content;
   height: 30px;
   text-align: center;
   margin-right: 0.5rem;
