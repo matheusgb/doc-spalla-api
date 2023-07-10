@@ -1,14 +1,13 @@
-# Player endpoints
+## Player endpoints
 Here you will find the player endpoints. Below, you can explore the various API endpoints 
 related to player functionalities. Use these endpoints to enhance your application's audio 
 and video playback capabilities. Enjoy the seamless integration of player features into 
 your project!
 
-## Player configuration
-import Requests from '../../components/Requests.tsx'
-
-<Requests method="GET" url="v1/players/configuration/:videoId?uid=:uid" 
-title="Show player configuration"/>
+### [GET] - Show player configuration
+```url copy
+https://api.spalla.io/v1/players/configuration/:videoId?uid=:uid
+```
 
 Returns the base assets to get Spalla Player up and running. You must use `assets.hls` in 
 TheoPlayer TypedSource configuration.
