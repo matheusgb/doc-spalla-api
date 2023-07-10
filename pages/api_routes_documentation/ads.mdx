@@ -1,3 +1,101 @@
-## [GET] Test
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus semper mi a pulvinar. Ut suscipit ligula elit, non sagittis magna dapibus ut. Duis blandit augue vel mi cursus gravida. Donec scelerisque ex vitae ante convallis, eu bibendum nisi aliquam.
+## Ads endpoints
+import { Callout } from 'nextra/components'
+import Link from 'next/link'
+ 
+<Callout type="info" emoji="ℹ️">
+  To use the endpoints, the <Link href="/token_authentication" target="_blank"> <u>Authentication Token</u> </Link> is required.
+</Callout>
 
+Here you will find the configuration endpoints for VAST ads. Below, you can explore 
+the different API endpoints specifically designed for configuring and customizing VAST 
+ad functionalities. Utilize these endpoints to enhance your application's ad serving 
+capabilities and provide a seamless integration of VAST ads into your project. Enjoy the 
+flexibility and control offered by these configuration endpoints to optimize your ad playback 
+experience!
+
+### [PATCH] - Update VAST settings
+```url copy
+https://api.spalla.io/v1/directories/:directory_id/settings
+```
+
+Modifies the VAST settings taking into account your url and a stipulated time.
+<Callout type="info" emoji="ℹ️">
+If a video already has more than 1 ad, and you want to delete one of those 2, use this endpoint sending only the link you want to keep.
+</Callout>
+
+***Path variables:***
+* `:directory_id` - <u>Required.</u> The unique identifier for the directory you want change vast settings.
+
+```json filename="SUCCESS - 200 OK"
+{
+    "ads": {
+        "vast": [
+            {
+                "url": "https://example.com",
+                "offset": "start"
+            },
+            {
+                "url": "https://example.com",
+                "offset": "00:50:00"
+            },
+            {
+                "url": "https://example.com",
+                "offset": "end"
+            }
+        ]
+    }
+}
+``` 
+---
+### [DELETE] - Remove VAST settings
+```url copy
+https://api.spalla.io/v1/directories/:directory_id/settings
+```
+
+Excludes the VAST settings from the folder passed in the url.
+
+***Path variables:***
+* `:directory_id` - <u>Required.</u> The unique identifier for the directory you want change vast settings.
+
+```json filename="BODY EXAMPLE"
+{
+    "ads": {
+        "vast": null
+    }
+}
+```
+```json filename="SUCCESS - 200 OK"
+{
+  "id": "2FdbsealGnXZBaUBfsMONS1MJY6",
+  "name": "Teste 404",
+  "isDir": true,
+  "parentId": "2Fdbq0gG2ybOQ8joU63JLhcZhLK",
+  "fullPath": [
+    "2DaZadMs4XTqPnumOzGp0IXi45G",
+    "2Fdbq0gG2ybLhcZhLKQ8joUO63J",
+    "2FdbsealGnXJY6UBfsMONS1ZBaM"
+  ],
+  "normalizedFullPath": "/2DaZadMs4XTi45GqPnumGp0IXOz/2Fdbq0gG2ybO63JLhcZh8joULKQ/2FdbsealGnXZBaMJY6UsMONS1Bf",
+  "updatedAt": "2023-02-13T08:41:25.968Z",
+  "defaultSettings": {
+    "live": {
+      "playerColor": null,
+      "thumbnail": null,
+      "startSoonScreen": null,
+      "pauseScreen": null,
+      "endingScreen": null
+    },
+    "vod": {
+      "playerColor": null,
+      "thumbnail": null,
+      "endScreen": null
+    },
+    "streaming": {
+      "referrerWhitelist": null
+    },
+    "transcode": {
+      "autoCreateSubtitle": null
+    }
+  }
+}
+``` 
