@@ -10,10 +10,15 @@ import Requests from '../../components/Requests.tsx'
 <Requests method="GET" url="v1/players/configuration/:videoId?uid=:uid" 
 title="Show player configuration"/>
 
+Returns the base assets to get Spalla Player up and running. You must use `assets.hls` in 
+TheoPlayer TypedSource configuration.
+
 ***Parameters:***\
-`:videoId` - The unique identifier for the video you want details about.\
-`:uid` - *Required.* Unique string or number used to identify the user downloading this file. 
+`:uid` - <u>Required.</u> Unique string or number used to identify the user downloading this file. 
 Valid characters: `A-Za-z0-9._@-` Max length: `32` Min length: `1`.
+
+***Path variables:***\
+`:videoId` - The unique identifier for the video you want details about.
 
 ```json filename="RESPONSE - 200 OK"
 {
@@ -27,5 +32,21 @@ Valid characters: `A-Za-z0-9._@-` Max length: `32` Min length: `1`.
   },
   "highlights": false,
   "createdAt": "2021-07-29T15:38:49.573Z"
+}
+``` 
+```json filename="GEOBLOCK - 428 PRECONDITION REQUIRED"
+{
+  "thumbnail": "https://beyond.spalla.io/config/banner/bloqueado.jpg",
+  "status": "blocked",
+  "userData": {
+    "ipAddress": "191.191.57.27",
+    "countryCode": "BR",
+    "countryName": "Brazil",
+    "regionCode": "SC",
+    "regionName": "Santa Catarina",
+    "city": "Florianópolis",
+    "isp": "Claro s.A.",
+    "asn": 28573
+  }
 }
 ``` 
