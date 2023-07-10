@@ -14,7 +14,7 @@ export const Container = styled.section`
   margin-top: 10px;
   display: flex;
   justify-content: center;
-  height: 30vh;
+  height: 20vh;
 `
 export const DivContainer = styled.div`
   width: 100%;
