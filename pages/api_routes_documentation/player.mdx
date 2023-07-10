@@ -19,14 +19,14 @@ https://api.spalla.io/v1/players/configuration/:videoId?uid=:uid
 Returns the base assets to get Spalla Player up and running. You must use `assets.hls` in 
 TheoPlayer TypedSource configuration.
 
-***Parameters:***\
-`:uid` - <u>Required.</u> Unique string or number used to identify the user downloading this file. 
+***Parameters:***
+* `:uid` - <u>Required.</u> Unique string or number used to identify the user downloading this file. 
 Valid characters: `A-Za-z0-9._@-` Max length: `32` Min length: `1`.
 
-***Path variables:***\
-`:videoId` - The unique identifier for the video you want details about.
+***Path variables:***
+* `:videoId` - The unique identifier for the video you want details about.
 
-```json filename="RESPONSE - 200 OK"
+```json filename="SUCCESS - 200 OK"
 {
   "title": "Example video",
   "broadcasting": false,

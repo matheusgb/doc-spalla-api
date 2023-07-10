@@ -1,0 +1,61 @@
+## Analytics endpoints
+import { Callout } from 'nextra/components'
+import Link from 'next/link'
+ 
+<Callout type="info" emoji="ℹ️">
+  To use the endpoints, the <Link href="/token_authentication" target="_blank"> <u>Authentication Token</u> </Link> is required.
+</Callout>
+
+Here you will discover a range of API endpoints specifically designed for analytics 
+purposes. These endpoints will empower you to gather valuable insights 
+and improve the performance of your application. Leverage these analytics 
+functionalities to enhance your data-driven decision-making process. Let's dive in and explore 
+the powerful features of our analytics endpoints.
+
+### [GET] - Get user session data
+```url copy
+https://api.spalla.io/v1/analytics/sessions/:videoId/:uid
+```
+
+Return information about one user session, specified by `uid`. You should get `uid` by using the *player notifications feature.*
+
+***Path variables:***
+* `:uid` - <u>Required.</u> The unique identifier for the user you want details about.
+* `:videoId` - The unique identifier for the video or live streaming you want details about.
+
+```json filename="SUCCESS - 200 OK"
+{
+  "videoId": "94afc898-0dc2-493a-b822-11bb0f35149a",
+  "uid": "4317ceed-27b0-4caa-833f-a79a3e32fd4a",
+  "cdn": "SingularVOD",
+  "currentTime": 53,
+  "duration": 53.7,
+  "paused": true,
+  "autoplay": true,
+  "fullscreen": false,
+  "quality": "1080p",
+  "autoQuality": true,
+  "bitrate": 6311200,
+  "casting": false,
+  "caster": "",
+  "browserName": "Chrome",
+  "browserVersion": "92.0.4515.159",
+  "device": "Desktop",
+  "isMobile": false,
+  "osFamily": "Linux",
+  "osArchitecture": "64",
+  "country": "Brazil",
+  "region": "Santa Catarina",
+  "city": "Florianópolis",
+  "isp": "Telefnica Brasil s.A",
+  "asn": "18881",
+  "ip": "177.132.97.204",
+  "updatedAt": "2021-08-30T23:08:29Z"
+}
+``` 
+```json filename="FAIL - 404 NOT FOUND"
+{
+  "status": 404,
+  "message": "Stream not found"
+}
+``` 
