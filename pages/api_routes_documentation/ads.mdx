@@ -26,6 +26,8 @@ If a video already has more than 1 ad, and you want to delete one of those 2, us
 ***Path variables:***
 * `:directory_id` - <u>Required.</u> The unique identifier for the directory you want change vast settings.
 
+<details> 
+<summary>Response example</summary>
 ```json filename="SUCCESS - 200 OK"
 {
     "ads": {
@@ -46,6 +48,7 @@ If a video already has more than 1 ad, and you want to delete one of those 2, us
     }
 }
 ``` 
+</details>
 ---
 ### [DELETE] - Remove VAST settings
 ```url copy
@@ -57,13 +60,19 @@ Excludes the VAST settings from the folder passed in the url.
 ***Path variables:***
 * `:directory_id` - <u>Required.</u> The unique identifier for the directory you want change vast settings.
 
-```json filename="BODY EXAMPLE"
+<details> 
+<summary>Body example</summary>
+```json copy filename="json"
 {
     "ads": {
         "vast": null
     }
 }
 ```
+</details>
+
+<details> 
+<summary>Response example</summary>
 ```json filename="SUCCESS - 200 OK"
 {
   "id": "2FdbsealGnXZBaUBfsMONS1MJY6",
@@ -99,3 +108,4 @@ Excludes the VAST settings from the folder passed in the url.
   }
 }
 ``` 
+</details>
