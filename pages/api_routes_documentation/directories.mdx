@@ -1,0 +1,95 @@
+## Directories endpoints
+import { Callout } from 'nextra/components'
+import Link from 'next/link'
+ 
+<Callout type="info" emoji="ℹ️">
+  To use the endpoints, the <Link href="/token_authentication" target="_blank"> <u>Authentication Token</u> </Link> is required.
+</Callout>
+
+text
+
+### [GET] - Directory tree
+```url copy
+https://api.spalla.io/v1/directories?name=:directory_name&directory=:directory_id
+```
+
+Get your directory tree, along with children directories and their information.
+
+***Parameters:***
+* `:directory_name` - Filter by folder name.
+* `:directory_id` - Return the directory tree for this directory.
+
+<details> 
+<summary>Response examples</summary>
+```json filename="SUCCESS - 200 OK"
+{
+  "rootFolderId": "2DPDLcJffhqIg7sYSgX3tFkfkky",
+  "fileMap": {
+    "2DP34jbgYgWAfJYa7fu0dlvWUMb": {
+      "id": "2DP34jbgYgWAfJYa7fu0dlvWUMb",
+      "name": "labore id pariatur",
+      "isDir": true,
+      "parentId": "2DPDLcJffhqIg7sYSgX3tFkfkky",
+      "childrenIds": [
+        "2DP38CQRNXtMbe3z4S5phPr5KhY",
+        "2DPD7kfxJ6VtgFzhhuKZRq9Z5hA"
+      ],
+      "childrenCount": 2,
+      "updatedAt": "2022-08-15T18:05:02.345Z"
+    },
+    "2DP38CQRNXtMbe3z4S5phPr5KhY": {
+      "id": "2DP38CQRNXtMbe3z4S5phPr5KhY",
+      "name": "temporibus et excepturi",
+      "isDir": true,
+      "parentId": "2DP34jbgYgWAfJYa7fu0dlvWUMb",
+      "updatedAt": "2022-08-15T18:05:30.907Z"
+    },
+    "2DPCVUd5ebm6sF6YnQpRJjA6jJb": {
+      "id": "2DPCVUd5ebm6sF6YnQpRJjA6jJb",
+      "name": "New name",
+      "isDir": true,
+      "parentId": "2DPD7kfxJ6VtgFzhhuKZRq9Z5hA",
+      "updatedAt": "2022-08-19T13:27:05.991Z"
+    },
+    "2DPD7kfxJ6VtgFzhhuKZRq9Z5hA": {
+      "id": "2DPD7kfxJ6VtgFzhhuKZRq9Z5hA",
+      "name": "quasi nemo odio",
+      "isDir": true,
+      "parentId": "2DP34jbgYgWAfJYa7fu0dlvWUMb",
+      "childrenIds": [
+        "2DPCVUd5ebm6sF6YnQpRJjA6jJb"
+      ],
+      "updatedAt": "2022-08-15T19:27:40.686Z"
+    },
+    "2DPDLcJffhqIg7sYSgX3tFkfkky": {
+      "id": "2DPDLcJffhqIg7sYSgX3tFkfkky",
+      "name": "Root",
+      "isDir": true,
+      "rootFolder": true,
+      "childrenIds": [
+        "2DP34jbgYgWAfJYa7fu0dlvWUMb",
+        "2DP36rJzOOQygz7xSpVCMban8hF"
+      ],
+      "childrenCount": 2,
+      "videoCount": 2,
+      "updatedAt": "2022-08-15T19:29:30.722Z"
+    }
+  }
+}
+``` 
+</details> 
+
+### [POST] - Create directory
+```url copy
+https://api.spalla.io/v1/directories
+```
+Creates a new directory within the `parentId` directory. `parentId` is a required key in the request body.
+<details> 
+<summary>Body example</summary>
+```json filename="json"
+{
+  "name": "New directory name",
+  "parentId": "2DP34jbgYgWAfJYa7fu0dlvWUMb"
+}
+``` 
+</details> 
