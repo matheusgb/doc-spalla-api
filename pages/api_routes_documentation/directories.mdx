@@ -6,7 +6,7 @@ import Link from 'next/link'
   To use the endpoints, the <Link href="/token_authentication" target="_blank"> <u>Authentication Token</u> </Link> is required.
 </Callout>
 
-text
+Here you will find all the essential information about our API's directory-related endpoints. Whether you're a seasoned developer or just starting, this documentation aims to provide you with clear and concise explanations, along with practical examples, to effortlessly integrate directory functionality into your applications.
 
 ### [GET] - Directory tree
 ```url copy
@@ -90,6 +90,64 @@ Creates a new directory within the `parentId` directory. `parentId` is a require
 {
   "name": "New directory name",
   "parentId": "2DP34jbgYgWAfJYa7fu0dlvWUMb"
+}
+``` 
+</details> 
+
+### [GET] - Get contents
+```url copy
+https://api.spalla.io/v1/directories/:directory_id/contents?page=:page_number&limit=:limit_number&sort=:sort_type&title=:video_title&tags=:video_tags
+```
+
+Show contents of a folder.
+
+***Parameters:***
+* `:page_number` - Offset by this many pages, of the size of limit.
+* `:limit_number` - Return the directory tree for this directory.
+* `:sort_type` - Content sort order. [created_at|title|description],[asc|desc] Default is `created_at,desc`.
+* `:video_title` - Filter by video title.
+* `:video_tags` - Filter by tags, comma separated
+
+***Path variables:***
+* `:directory_id` - <u>Required.</u> Directory ID to get contents.
+
+
+<details> 
+<summary>Response examples</summary>
+```json filename="SUCCESS - 200 OK"
+{
+  "id": "2DPDLcJffhqIg7sYSgX3tFkfkky",
+  "name": "Root",
+  "childrenCount": 1,
+  "updatedAt": "2022-08-19T17:30:21.819Z",
+  "fileMap": {
+    "bf5851ef-aa01-47be-a055-076ca79904a8": {
+      "id": "bf5851ef-aa01-47be-a055-076ca79904a8",
+      "name": "file_example_MP4_480_1_5MG.mp4",
+      "parentId": "2DPDLcJffhqIg7sYSgX3tFkfkky",
+      "duration": 0,
+      "tags": [],
+      "thumbnail": "https://beyond.spalla.io/config/banner/placeholder.png",
+      "views": 0,
+      "iframe": "<div style='padding: 56.25% 0 0 0; position: relative;'><iframe id='spalla-player' src='https://beyond.spalla.io/player/?video=bf5851ef-aa01-47be-a055-076ca79904a8' title='file_example_MP4_480_1_5MG.mp4' frameborder='0' scrolling='no' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' allowfullscreen></iframe></div>",
+      "playerURL": "https://beyond.spalla.io/player/?video=bf5851ef-aa01-47be-a055-076ca79904a8",
+      "mp4": {
+        "360p": "https://api.spalla.io/v1/videos/bf5851ef-aa01-47be-a055-076ca79904a8/download/fc94a898-0dc2-493a-b822-149d1bb0f351/mp4/360p",
+        "480p": "https://api.spalla.io/v1/videos/bf5851ef-aa01-47be-a055-076ca79904a8/download/fc94a898-0dc2-493a-b822-149d1bb0f351/mp4/480p",
+        "720p": "https://api.spalla.io/v1/videos/bf5851ef-aa01-47be-a055-076ca79904a8/download/fc94a898-0dc2-493a-b822-149d1bb0f351/mp4/720p",
+        "240p": "https://api.spalla.io/v1/videos/bf5851ef-aa01-47be-a055-076ca79904a8/download/fc94a898-0dc2-493a-b822-149d1bb0f351/mp4/240p"
+      },
+      "published": false,
+      "createdAt": "2022-08-15T19:29:30.721Z"
+    }
+  },
+  "pagination": {
+    "currentPage": 0,
+    "pageSize": 0,
+    "pagesTotal": 5,
+    "itensTotal": 5,
+    "currentPageItens": 1
+  }
 }
 ``` 
 </details> 
